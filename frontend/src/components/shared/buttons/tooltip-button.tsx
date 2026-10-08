@@ -66,7 +66,7 @@ export function TooltipButton({
         className={({ isActive }) =>
           cn(
             "hover:opacity-80",
-            isActive ? "text-white" : "text-[#9099AC]",
+            isActive ? "text-content" : "text-basic",
             className,
           )
         }
@@ -83,11 +83,7 @@ export function TooltipButton({
         type="button"
         aria-label={ariaLabel}
         data-testid={testId}
-        className={cn(
-          "text-[#9099AC]",
-          "opacity-50 cursor-not-allowed",
-          className,
-        )}
+        className={cn("text-basic", "opacity-50 cursor-not-allowed", className)}
         disabled
       >
         {children}

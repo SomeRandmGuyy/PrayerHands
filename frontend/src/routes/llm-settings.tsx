@@ -47,13 +47,13 @@ function OpenHandsApiKeyHelp({ testId }: OpenHandsApiKeyHelpProps) {
         testId={testId}
         text={t(I18nKey.SETTINGS$OPENHANDS_API_KEY_HELP_TEXT)}
         linkText={t(I18nKey.SETTINGS$NAV_API_KEYS)}
-        href="https://app.all-hands.dev/settings/api-keys"
+        href="https://gentle-fist.dev/settings/api-keys"
         suffix={` ${t(I18nKey.SETTINGS$OPENHANDS_API_KEY_HELP_SUFFIX)}`}
       />
       <p className="text-xs">
         {t(I18nKey.SETTINGS$LLM_BILLING_INFO)}{" "}
         <a
-          href="https://docs.all-hands.dev/usage/llms/openhands-llms"
+          href="https://gentle-fist.dev/usage/llms/openhands-llms"
           rel="noreferrer noopener"
           target="_blank"
           className="underline underline-offset-2"
@@ -529,7 +529,7 @@ function LlmSettingsScreen() {
                 testId="llm-api-key-help-anchor"
                 text={t(I18nKey.SETTINGS$DONT_KNOW_API_KEY)}
                 linkText={t(I18nKey.SETTINGS$CLICK_FOR_INSTRUCTIONS)}
-                href="https://docs.all-hands.dev/usage/local-setup#getting-an-api-key"
+                href="https://gentle-fist.dev/usage/local-setup#getting-an-api-key"
               />
 
               {config?.APP_MODE !== "saas" && (
@@ -611,7 +611,7 @@ function LlmSettingsScreen() {
                 testId="llm-api-key-help-anchor-advanced"
                 text={t(I18nKey.SETTINGS$DONT_KNOW_API_KEY)}
                 linkText={t(I18nKey.SETTINGS$CLICK_FOR_INSTRUCTIONS)}
-                href="https://docs.all-hands.dev/usage/local-setup#getting-an-api-key"
+                href="https://gentle-fist.dev/usage/local-setup#getting-an-api-key"
               />
 
               {config?.APP_MODE !== "saas" && (
@@ -704,7 +704,7 @@ function LlmSettingsScreen() {
             <TooltipButton
               tooltip={t(I18nKey.SETTINGS$CONFIRMATION_MODE_TOOLTIP)}
               ariaLabel={t(I18nKey.SETTINGS$CONFIRMATION_MODE)}
-              className="text-[#9099AC] hover:text-white cursor-help"
+              className="text-basic hover:text-content cursor-help"
             >
               <QuestionCircleIcon width={16} height={16} />
             </TooltipButton>

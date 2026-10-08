@@ -1,6 +1,6 @@
-# OpenHands Documentation
+# Gentle Fist Documentation
 
-This directory contains the documentation for OpenHands. The documentation is automatically synchronized with the [All-Hands-AI/docs](https://github.com/All-Hands-AI/docs) repository, which hosts the unified documentation site using Mintlify.
+This directory contains the documentation for Gentle Fist. The documentation is automatically synchronized with the [All-Hands-AI/docs](https://github.com/All-Hands-AI/docs) repository, which hosts the unified documentation site using Mintlify.
 
 ## Documentation Structure
 

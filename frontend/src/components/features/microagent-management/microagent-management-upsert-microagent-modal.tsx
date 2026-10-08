@@ -108,9 +108,9 @@ export function MicroagentManagementUpsertMicroagentModal({
         <div className="flex flex-col gap-2 w-full">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2">
-              <h2 className="text-white text-xl font-medium">{modalTitle}</h2>
+              <h2 className="text-content text-xl font-medium">{modalTitle}</h2>
               <a
-                href="https://docs.all-hands.dev/usage/prompting/microagents-overview#microagents-overview"
+                href="https://gentle-fist.dev/usage/prompting/microagents-overview#microagents-overview"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -118,10 +118,10 @@ export function MicroagentManagementUpsertMicroagentModal({
               </a>
             </div>
             <button type="button" onClick={onCancel} className="cursor-pointer">
-              <XIcon width={24} height={24} color="#F9FBFE" />
+              <XIcon width={24} height={24} color="#1c1917" />
             </button>
           </div>
-          <span className="text-white text-sm font-normal">
+          <span className="text-content text-sm font-normal">
             {modalDescription}
           </span>
         </div>
@@ -144,8 +144,8 @@ export function MicroagentManagementUpsertMicroagentModal({
               placeholder={t(I18nKey.MICROAGENT_MANAGEMENT$DESCRIBE_WHAT_TO_DO)}
               rows={6}
               className={cn(
-                "bg-tertiary border border-[#717888] bg-[#454545] w-full rounded-sm p-2 placeholder:italic placeholder:text-tertiary-alt resize-none",
-                "disabled:bg-[#2D2F36] disabled:border-[#2D2F36] disabled:cursor-not-allowed",
+                "bg-tertiary border border-[#717888] bg-base-tertiary w-full rounded-sm p-2 placeholder:italic placeholder:text-tertiary-alt resize-none",
+                "disabled:bg-base-tertiary disabled:border-tertiary disabled:cursor-not-allowed",
               )}
             />
           </label>
@@ -156,7 +156,7 @@ export function MicroagentManagementUpsertMicroagentModal({
             <div className="flex items-center gap-2">
               {t(I18nKey.MICROAGENT_MANAGEMENT$ADD_TRIGGERS)}
               <a
-                href="https://docs.all-hands.dev/usage/prompting/microagents-keyword"
+                href="https://gentle-fist.dev/usage/prompting/microagents-keyword"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -169,7 +169,7 @@ export function MicroagentManagementUpsertMicroagentModal({
               placeholder={t("MICROAGENT$TYPE_TRIGGER_SPACE")}
               onChange={setTriggers}
             />
-            <span className="text-xs text-[#ffffff80] font-normal">
+            <span className="text-xs text-basic font-normal">
               {t(
                 I18nKey.MICROAGENT_MANAGEMENT$HELP_TEXT_DESCRIBING_VALID_TRIGGERS,
               )}

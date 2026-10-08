@@ -80,9 +80,7 @@ def launch_gui_server(mount_cwd: bool = False, gpu: bool = False) -> None:
         mount_cwd: If True, mount the current working directory into the container.
         gpu: If True, enable GPU support by mounting all GPUs into the container via nvidia-docker.
     """
-    print_formatted_text(
-        HTML('<ansiblue>🚀 Launching OpenHands GUI server...</ansiblue>')
-    )
+    print_formatted_text(HTML('<ansiblue>🚀 Launching Gentle Fist...</ansiblue>'))
     print_formatted_text('')
 
     # Check Docker requirements
@@ -92,37 +90,34 @@ def launch_gui_server(mount_cwd: bool = False, gpu: bool = False) -> None:
     # Ensure config directory exists
     config_dir = ensure_config_dir_exists()
 
-    # Get the current version for the Docker image
+    # Get the current version for the application image.
+    # The sandbox is the locally built Gentle Fist Machine.
     version = __version__
-    runtime_image = f'docker.all-hands.dev/all-hands-ai/runtime:{version}-nikolaik'
+    runtime_image = 'gentlefist/machine:latest'
     app_image = f'docker.all-hands.dev/all-hands-ai/openhands:{version}'
 
-    print_formatted_text(HTML('<grey>Pulling required Docker images...</grey>'))
-
-    # Pull the runtime image first
-    pull_cmd = ['docker', 'pull', runtime_image]
-    print_formatted_text(HTML(_format_docker_command_for_logging(pull_cmd)))
-    try:
-        subprocess.run(
-            pull_cmd,
-            check=True,
-            timeout=300,  # 5 minutes timeout
-        )
-    except subprocess.CalledProcessError:
+    print_formatted_text(HTML('<grey>Checking the Gentle Fist Machine image...</grey>'))
+    inspect = subprocess.run(
+        ['docker', 'image', 'inspect', runtime_image],
+        capture_output=True,
+        check=False,
+    )
+    if inspect.returncode != 0:
         print_formatted_text(
-            HTML('<ansired>❌ Failed to pull runtime image.</ansired>')
+            HTML(
+                '<ansired>❌ Gentle Fist Machine image was not found locally.</ansired>'
+            )
         )
-        sys.exit(1)
-    except subprocess.TimeoutExpired:
         print_formatted_text(
-            HTML('<ansired>❌ Timeout while pulling runtime image.</ansired>')
+            HTML(
+                '<grey>Build it from the repository root: '
+                'docker build -f containers/machine/Dockerfile -t gentlefist/machine:latest .</grey>'
+            )
         )
         sys.exit(1)
 
     print_formatted_text('')
-    print_formatted_text(
-        HTML('<ansigreen>✅ Starting OpenHands GUI server...</ansigreen>')
-    )
+    print_formatted_text(HTML('<ansigreen>✅ Starting Gentle Fist...</ansigreen>'))
     print_formatted_text(
         HTML('<grey>The server will be available at: http://localhost:3000</grey>')
     )
@@ -165,7 +160,7 @@ def launch_gui_server(mount_cwd: bool = False, gpu: bool = False) -> None:
     # Add current working directory mount if requested
     if mount_cwd:
         cwd = Path.cwd()
-        # Following the documentation at https://docs.all-hands.dev/usage/runtimes/docker#connecting-to-your-filesystem
+        # Following the documentation at https://gentle-fist.dev
         docker_cmd.extend(
             [
                 '-e',
@@ -195,7 +190,7 @@ def launch_gui_server(mount_cwd: bool = False, gpu: bool = False) -> None:
             '--add-host',
             'host.docker.internal:host-gateway',
             '--name',
-            'openhands-app',
+            'gentlefist-app',
             app_image,
         ]
     )
@@ -206,9 +201,7 @@ def launch_gui_server(mount_cwd: bool = False, gpu: bool = False) -> None:
         subprocess.run(docker_cmd, check=True)
     except subprocess.CalledProcessError as e:
         print_formatted_text('')
-        print_formatted_text(
-            HTML('<ansired>❌ Failed to start OpenHands GUI server.</ansired>')
-        )
+        print_formatted_text(HTML('<ansired>❌ Failed to start Gentle Fist.</ansired>'))
         print_formatted_text(HTML(f'<grey>Error: {e}</grey>'))
         sys.exit(1)
     except KeyboardInterrupt:

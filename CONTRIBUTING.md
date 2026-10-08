@@ -1,8 +1,8 @@
 # Contributing
 
-Thanks for your interest in contributing to OpenHands! We welcome and appreciate contributions.
+Thanks for your interest in contributing to Gentle Fist! We welcome and appreciate contributions.
 
-## Understanding OpenHands's CodeBase
+## Understanding Gentle Fist's CodeBase
 
 To understand the codebase, please refer to the README in each module:
 - [frontend](./frontend/README.md)
@@ -19,8 +19,8 @@ We have a separate doc [Development.md](https://github.com/All-Hands-AI/OpenHand
 
 There are many ways that you can contribute:
 
-1. **Download and use** OpenHands, and send [issues](https://github.com/All-Hands-AI/OpenHands/issues) when you encounter something that isn't working or a feature that you'd like to see.
-2. **Send feedback** after each session by [clicking the thumbs-up thumbs-down buttons](https://docs.all-hands.dev/usage/feedback), so we can see where things are working and failing, and also build an open dataset for training code agents.
+1. **Download and use** Gentle Fist, and send [issues](https://github.com/All-Hands-AI/OpenHands/issues) when you encounter something that isn't working or a feature that you'd like to see.
+2. **Send feedback** after each session by [clicking the thumbs-up thumbs-down buttons](https://gentle-fist.dev/usage/feedback), so we can see where things are working and failing, and also build an open dataset for training code agents.
 3. **Improve the Codebase** by sending [PRs](#sending-pull-requests-to-openhands) (see details below). In particular, we have some [good first issues](https://github.com/All-Hands-AI/OpenHands/labels/good%20first%20issue) that may be ones to start on.
 
 ## What Can I Build?
@@ -47,10 +47,10 @@ channel in Slack to learn more.
 
 #### Adding a new agent
 You may want to experiment with building new types of agents. You can add an agent to [`openhands/agenthub`](./openhands/agenthub)
-to help expand the capabilities of OpenHands.
+to help expand the capabilities of Gentle Fist.
 
 #### Adding a new runtime
-The agent needs a place to run code and commands. When you run OpenHands on your laptop, it uses a Docker container
+The agent needs a place to run code and commands. When you run Gentle Fist on your laptop, it uses a Docker container
 to do this by default. But there are other ways of creating a sandbox for the agent.
 
 If you work for a company that provides a cloud-based runtime, you could help us add support for that runtime
@@ -60,7 +60,7 @@ by implementing the [interface specified here](https://github.com/All-Hands-AI/O
 When you write code, it is also good to write tests. Please navigate to the [`./tests`](./tests) folder to see existing test suites.
 At the moment, we have two kinds of tests: [`unit`](./tests/unit) and [`integration`](./evaluation/integration_tests). Please refer to the README for each test suite. These tests also run on GitHub's continuous integration to ensure quality of the project.
 
-## Sending Pull Requests to OpenHands
+## Sending Pull Requests to Gentle Fist
 
 You'll need to fork our repository to send us a Pull Request. You can learn more
 about how to fork a GitHub repo and open a PR with your changes in [this article](https://medium.com/swlh/forks-and-pull-requests-how-to-contribute-to-github-repos-8843fac34ce8).

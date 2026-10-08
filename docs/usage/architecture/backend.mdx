@@ -10,7 +10,7 @@ This is a high-level overview of the system architecture. The system is divided 
 ```mermaid
 flowchart LR
   U["User"] --> FE["Frontend (SPA)"]
-  FE -- "HTTP/WS" --> BE["OpenHands Backend"]
+  FE -- "HTTP/WS" --> BE["Gentle Fist Backend"]
   BE --> ES["EventStream"]
   BE --> ST["Storage"]
   BE --> RT["Runtime Interface"]

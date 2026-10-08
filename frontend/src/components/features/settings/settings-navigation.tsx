@@ -59,7 +59,7 @@ export function SettingsNavigation({
           <button
             type="button"
             onClick={onCloseMobileMenu}
-            className="md:hidden p-0.5 hover:bg-[#454545] rounded-md transition-colors"
+            className="md:hidden p-0.5 hover:bg-base-tertiary rounded-md transition-colors"
             aria-label="Close navigation menu"
           >
             <CloseIcon width={32} height={32} />
@@ -76,13 +76,13 @@ export function SettingsNavigation({
               className={({ isActive }) =>
                 cn(
                   "flex items-center gap-3 p-1 sm:px-[14px] sm:py-2 rounded-md transition-colors",
-                  isActive ? "bg-[#454545]" : "hover:bg-[#454545]",
+                  isActive ? "bg-base-tertiary" : "hover:bg-base-tertiary",
                 )
               }
             >
               {icon}
               <div className="flex items-center gap-1.5 min-w-0 flex-1">
-                <Typography.Text className="text-[#A3A3A3] whitespace-nowrap">
+                <Typography.Text className="text-basic whitespace-nowrap">
                   {t(text as I18nKey)}
                 </Typography.Text>
                 {isSaas && to === "/settings" && <ProPill />}

@@ -2,7 +2,7 @@
 title: Debugging
 ---
 
-The following is intended as a primer on debugging OpenHands for Development purposes.
+The following is intended as a primer on debugging Gentle Fist for Development purposes.
 
 ## Server / VSCode
 
@@ -13,14 +13,14 @@ The following `launch.json` will allow debugging the agent, controller and serve
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "OpenHands CLI",
+            "name": "Gentle Fist CLI",
             "type": "debugpy",
             "request": "launch",
             "module": "openhands.cli.main",
             "justMyCode": false
         },
         {
-            "name": "OpenHands WebApp",
+            "name": "Gentle Fist WebApp",
             "type": "debugpy",
             "request": "launch",
             "module": "uvicorn",

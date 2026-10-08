@@ -63,16 +63,16 @@ export function AgentStatus({
   return (
     <div className={cn("flex items-center gap-1 min-w-0", className)}>
       <span
-        className="text-[11px] text-white font-normal leading-5 flex-1 min-w-0 max-w-full whitespace-normal break-words"
+        className="text-[11px] text-content font-normal leading-5 flex-1 min-w-0 max-w-full whitespace-normal break-words"
         title={t(statusCode)}
       >
         {t(statusCode)}
       </span>
       <div
         className={cn(
-          "bg-[#525252] box-border content-stretch flex flex-row gap-[3px] items-center justify-center overflow-clip px-0.5 py-1 relative rounded-[100px] shrink-0 size-6 transition-all duration-200 active:scale-95",
+          "bg-base-tertiary box-border content-stretch flex flex-row gap-[3px] items-center justify-center overflow-clip px-0.5 py-1 relative rounded-[100px] shrink-0 size-6 transition-all duration-200 active:scale-95",
           (shouldShownAgentStop || shouldShownAgentResume) &&
-            "hover:bg-[#737373] cursor-pointer",
+            "hover:bg-base-tertiary cursor-pointer",
         )}
       >
         {shouldShownAgentLoading && <AgentLoading />}

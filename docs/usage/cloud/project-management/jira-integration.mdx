@@ -1,6 +1,6 @@
 ---
 title: Jira Cloud Integration (Coming soon...)
-description: Complete guide for setting up Jira Cloud integration with OpenHands Cloud, including service account creation, API token generation, webhook configuration, and workspace integration setup.
+description: Complete guide for setting up Jira Cloud integration with Gentle Fist Cloud, including service account creation, API token generation, webhook configuration, and workspace integration setup.
 ---
 
 # Jira Cloud Integration
@@ -14,10 +14,10 @@ description: Complete guide for setting up Jira Cloud integration with OpenHands
    - Select your organization
    - Go to **Directory** > **Users**
 
-2. **Create OpenHands Service Account**
+2. **Create Gentle Fist Service Account**
    - Click **Service accounts**
    - Click **Create a service account**
-   - Name: `OpenHands Agent`
+   - Name: `Gentle Fist Agent`
    - Click **Next**
    - Select **User** role for Jira app
    - Click **Create**
@@ -45,9 +45,9 @@ description: Complete guide for setting up Jira Cloud integration with OpenHands
    - Click **Create a WebHook**
 
 2. **Configure Webhook**
-   - **Name**: `OpenHands Cloud Integration`
+   - **Name**: `Gentle Fist Cloud Integration`
    - **Status**: Enabled
-   - **URL**: `https://app.all-hands.dev/integration/jira/events`
+   - **URL**: `https://gentle-fist.dev/integration/jira/events`
    - **Issue related events**: Select the following:
      - Issue updated
      - Comment created
@@ -59,12 +59,12 @@ description: Complete guide for setting up Jira Cloud integration with OpenHands
 
 ## Workspace Integration
 
-### Step 1: Log in to OpenHands Cloud
+### Step 1: Log in to Gentle Fist Cloud
 
 1. **Navigate and Authenticate**
-   - Go to [OpenHands Cloud](https://app.all-hands.dev/)
+   - Go to [Gentle Fist Cloud](https://gentle-fist.dev/)
    - Sign in with your Git provider (GitHub, GitLab, or BitBucket)
-   - **Important:** Make sure you're signing in with the same Git provider account that contains the repositories you want the OpenHands agent to work on.
+   - **Important:** Make sure you're signing in with the same Git provider account that contains the repositories you want the Gentle Fist agent to work on.
 
 ### Step 2: Configure Jira Integration
 
@@ -93,7 +93,7 @@ Here the workspace name is **all-hands**.
 3. **Complete OAuth Flow**
    - You'll be redirected to Jira Cloud to complete OAuth verification
    - Grant the necessary permissions to verify your workspace access.
-   - If successful, you will be redirected back to the **Integrations** settings in the OpenHands Cloud UI
+   - If successful, you will be redirected back to the **Integrations** settings in the Gentle Fist Cloud UI
 
 ### Managing Your Integration
 

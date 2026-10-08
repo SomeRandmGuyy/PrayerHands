@@ -72,7 +72,7 @@ describe("Content", () => {
       const apiKey = screen.getByTestId("llm-api-key-input");
 
       await waitFor(() => {
-        expect(provider).toHaveValue("OpenHands");
+        expect(provider).toHaveValue("Gentle Fist");
         expect(model).toHaveValue("claude-sonnet-4-20250514");
 
         expect(apiKey).toHaveValue("");
@@ -600,7 +600,7 @@ describe("Form submission", () => {
 
     // select provider
     await userEvent.click(provider);
-    const providerOption = screen.getByText("OpenHands");
+    const providerOption = screen.getByText("Gentle Fist");
     await userEvent.click(providerOption);
 
     // select model

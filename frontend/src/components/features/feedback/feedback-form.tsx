@@ -7,7 +7,7 @@ import { useSubmitFeedback } from "#/hooks/mutation/use-submit-feedback";
 import { BrandButton } from "../settings/brand-button";
 
 const FEEDBACK_VERSION = "1.0";
-const VIEWER_PAGE = "https://www.all-hands.dev/share";
+const VIEWER_PAGE = "https://gentle-fist.dev/share";
 
 interface FeedbackFormProps {
   onClose: () => void;
@@ -101,7 +101,7 @@ export function FeedbackForm({ onClose, polarity }: FeedbackFormProps) {
           name="email"
           type="email"
           placeholder={t(I18nKey.FEEDBACK$EMAIL_PLACEHOLDER)}
-          className="bg-[#27272A] px-3 py-[10px] rounded-sm"
+          className="bg-base-secondary px-3 py-[10px] rounded-sm"
         />
       </label>
 

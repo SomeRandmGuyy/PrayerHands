@@ -1,21 +1,21 @@
 ---
 title: GitHub Integration
-description: This guide walks you through the process of installing OpenHands Cloud for your GitHub repositories. Once
-  set up, it will allow OpenHands to work with your GitHub repository through the Cloud UI or straight from GitHub!
+description: This guide walks you through the process of installing Gentle Fist Cloud for your GitHub repositories. Once
+  set up, it will allow Gentle Fist to work with your GitHub repository through the Cloud UI or straight from GitHub!
 ---
 
 ## Prerequisites
 
-- Signed in to [OpenHands Cloud](https://app.all-hands.dev) with [a GitHub account](/usage/cloud/openhands-cloud).
+- Signed in to [Gentle Fist Cloud](https://gentle-fist.dev) with [a GitHub account](/usage/cloud/openhands-cloud).
 
 ## Adding GitHub Repository Access
 
-You can grant OpenHands access to specific GitHub repositories:
+You can grant Gentle Fist access to specific GitHub repositories:
 
 1. Click on `+ Add GitHub Repos` in the repository selection dropdown.
-2. Select your organization and choose the specific repositories to grant OpenHands access to.
-<Accordion title="OpenHands permissions">
-  - OpenHands requests short-lived tokens (8-hour expiration) with these permissions:
+2. Select your organization and choose the specific repositories to grant Gentle Fist access to.
+<Accordion title="Gentle Fist permissions">
+  - Gentle Fist requests short-lived tokens (8-hour expiration) with these permissions:
      - Actions: Read and write
      - Commit statuses: Read and write
      - Contents: Read and write
@@ -37,38 +37,38 @@ You can modify GitHub repository access at any time by:
 - Selecting `+ Add GitHub Repos` in the repository selection dropdown or
 - Visiting the `Settings > Integrations` page and selecting `Configure GitHub Repositories`
 
-## Working With GitHub Repos in Openhands Cloud
+## Working With GitHub Repos in Gentle Fist Cloud
 
 Once you've granted GitHub repository access, you can start working with your GitHub repository. Use the
-`Open Repository` section to select the appropriate repository and branch you'd like OpenHands to work on. Then click
+`Open Repository` section to select the appropriate repository and branch you'd like Gentle Fist to work on. Then click
 on `Launch` to start the conversation!
 
 ![Connect Repo](/static/img/connect-repo.png)
 
-## Working on GitHub Issues and Pull Requests Using Openhands
+## Working on GitHub Issues and Pull Requests Using Gentle Fist
 
-To allow OpenHands to work directly from GitHub directly, you must
-[give OpenHands access to your repository](/usage/cloud/github-installation#modifying-repository-access). Once access is
-given, you can use OpenHands by labeling the issue or by tagging `@openhands`.
+To allow Gentle Fist to work directly from GitHub directly, you must
+[give Gentle Fist access to your repository](/usage/cloud/github-installation#modifying-repository-access). Once access is
+given, you can use Gentle Fist by labeling the issue or by tagging `@openhands`.
 
 ### Working with Issues
 
-On your repository, label an issue with `openhands` or add a message starting with `@openhands`. OpenHands will:
+On your repository, label an issue with `openhands` or add a message starting with `@openhands`. Gentle Fist will:
 1. Comment on the issue to let you know it is working on it.
-   - You can click on the link to track the progress on OpenHands Cloud.
+   - You can click on the link to track the progress on Gentle Fist Cloud.
 2. Open a pull request if it determines that the issue has been successfully resolved.
 3. Comment on the issue with a summary of the performed tasks and a link to the PR.
 
 ### Working with Pull Requests
 
-To get OpenHands to work on pull requests, mention `@openhands` in the comments to:
+To get Gentle Fist to work on pull requests, mention `@openhands` in the comments to:
 - Ask questions
 - Request updates
 - Get code explanations
 
 <Note>
 The `@openhands` mention functionality in pull requests only works if the pull request is both
-*to* and *from* a repository that you have added through the interface. This is because OpenHands needs appropriate
+*to* and *from* a repository that you have added through the interface. This is because Gentle Fist needs appropriate
 permissions to access both repositories.
 </Note>
 
@@ -76,4 +76,4 @@ permissions to access both repositories.
 ## Next Steps
 
 - [Learn about the Cloud UI](/usage/cloud/cloud-ui).
-- [Use the Cloud API](/usage/cloud/cloud-api) to programmatically interact with OpenHands.
+- [Use the Cloud API](/usage/cloud/cloud-api) to programmatically interact with Gentle Fist.

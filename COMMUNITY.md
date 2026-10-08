@@ -1,6 +1,6 @@
-# 🙌 The OpenHands Community
+# 🙌 The Gentle Fist Community
 
-The OpenHands community is built around the belief that (1) AI and AI agents are going to fundamentally change the way
+The Gentle Fist community is built around the belief that (1) AI and AI agents are going to fundamentally change the way
 we build software, and (2) if this is true, we should do everything we can to make sure that the benefits provided by
 such powerful technology are accessible to everyone.
 
@@ -16,10 +16,10 @@ We welcome contributions from everyone! Whether you're a developer, a researcher
 the field of software engineering with AI, there are many ways to get involved:
 
 - **Code Contributions:** Help us develop new core functionality, improve our agents, improve the frontend and other
-interfaces, or anything else that would help make OpenHands better.
+interfaces, or anything else that would help make Gentle Fist better.
 - **Research and Evaluation:** Contribute to our understanding of LLMs in software engineering, participate in
 evaluating the models, or suggest improvements.
-- **Feedback and Testing:** Use the OpenHands toolset, report bugs, suggest features, or provide feedback on usability.
+- **Feedback and Testing:** Use the Gentle Fist toolset, report bugs, suggest features, or provide feedback on usability.
 
 For details, please check [CONTRIBUTING.md](./CONTRIBUTING.md).
 

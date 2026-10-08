@@ -20,14 +20,14 @@ export function ConversationTabNav({
       }}
       className={cn(
         "p-1 rounded-md cursor-pointer",
-        "text-[#9299AA] bg-[#0D0F11]",
-        isActive && "bg-[#25272D] text-white",
+        "text-basic bg-base",
+        isActive && "bg-base-secondary text-content",
         isActive
-          ? "hover:text-white hover:bg-tertiary"
-          : "hover:text-white hover:bg-[#0D0F11]",
+          ? "hover:text-content hover:bg-tertiary"
+          : "hover:text-content hover:bg-base",
         isActive
-          ? "focus-within:text-white focus-within:bg-tertiary"
-          : "focus-within:text-white focus-within:bg-[#0D0F11]",
+          ? "focus-within:text-content focus-within:bg-tertiary"
+          : "focus-within:text-content focus-within:bg-base",
       )}
     >
       <Icon className={cn("w-5 h-5 text-inherit")} />

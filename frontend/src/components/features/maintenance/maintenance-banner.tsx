@@ -87,7 +87,7 @@ export function MaintenanceBanner({ startTime }: MaintenanceBannerProps) {
     >
       <div className="flex items-center">
         <div className="flex-shrink-0">
-          <FaTriangleExclamation className="text-white align-middle" />
+          <FaTriangleExclamation className="text-content align-middle" />
         </div>
         <div className="ml-3">
           <p className="text-sm font-medium">
@@ -101,7 +101,7 @@ export function MaintenanceBanner({ startTime }: MaintenanceBannerProps) {
         data-testid="dismiss-button"
         onClick={() => setDismissedAt(localTime)}
         className={cn(
-          "bg-[#0D0F11] rounded-full w-5 h-5 flex items-center justify-center cursor-pointer",
+          "bg-base rounded-full w-5 h-5 flex items-center justify-center cursor-pointer",
         )}
       >
         <CloseIcon />
