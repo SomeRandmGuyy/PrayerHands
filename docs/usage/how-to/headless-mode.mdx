@@ -1,14 +1,14 @@
 ---
 title: Headless
-description: You can run OpenHands with a single command, without starting the web application. This makes it easy to
-  write scripts and automate tasks with OpenHands.
+description: You can run Gentle Fist with a single command, without starting the web application. This makes it easy to
+  write scripts and automate tasks with Gentle Fist.
 ---
 
 This is different from [the CLI](./cli-mode), which is interactive, and better for active development.
 
 ## With Python
 
-To run OpenHands in headless mode with Python:
+To run Gentle Fist in headless mode with Python:
 1. Ensure you have followed the [Development setup instructions](https://github.com/All-Hands-AI/OpenHands/blob/main/Development.md).
 2. Run the following command:
 ```bash
@@ -20,7 +20,7 @@ You'll need to be sure to set your model, API key, and other settings via enviro
 
 ### Working with Repositories
 
-You can specify a repository for OpenHands to work with using `--selected-repo` or the `SANDBOX_SELECTED_REPO` environment variable:
+You can specify a repository for Gentle Fist to work with using `--selected-repo` or the `SANDBOX_SELECTED_REPO` environment variable:
 
 > **Note**: Currently, authentication tokens (GITHUB_TOKEN, GITLAB_TOKEN, or BITBUCKET_TOKEN) are required for all repository operations, including public repositories. This is a known limitation that may be addressed in future versions to allow tokenless access to public repositories.
 
@@ -58,10 +58,10 @@ export LLM_API_KEY="your-api-key"
 export SANDBOX_SELECTED_REPO="owner/repo-name"  # Optional: requires GITHUB_TOKEN
 export GITHUB_TOKEN="your-token"  # Required for repository operations
 
-# Run OpenHands
+# Run Gentle Fist
 docker run -it \
     --pull=always \
-    -e SANDBOX_RUNTIME_CONTAINER_IMAGE=docker.all-hands.dev/all-hands-ai/runtime:0.58-nikolaik \
+    -e SANDBOX_RUNTIME_CONTAINER_IMAGE=gentlefist/machine:latest \
     -e SANDBOX_USER_ID=$(id -u) \
     -e SANDBOX_VOLUMES=$SANDBOX_VOLUMES \
     -e LLM_API_KEY=$LLM_API_KEY \
@@ -77,7 +77,7 @@ docker run -it \
     python -m openhands.core.main -t "write a bash script that prints hi"
 ```
 
-> **Note**: If you used OpenHands before version 0.44, run `mv ~/.openhands-state ~/.openhands` to migrate your conversation history.
+> **Note**: If you used Gentle Fist before version 0.44, run `mv ~/.openhands-state ~/.openhands` to migrate your conversation history.
 
 The `-e SANDBOX_USER_ID=$(id -u)` is passed to the Docker command to ensure the sandbox user matches the host user’s
 permissions. This prevents the agent from creating root-owned files in the mounted workspace.

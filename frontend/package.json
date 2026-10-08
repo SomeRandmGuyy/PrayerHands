@@ -2,6 +2,8 @@
   "name": "openhands-frontend",
   "version": "0.58.0",
   "private": true,
+  "license": "AGPL-3.0-only",
+  "description": "Gentle Fist web application",
   "type": "module",
   "engines": {
     "node": ">=22.0.0"

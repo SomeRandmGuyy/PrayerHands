@@ -1,6 +1,6 @@
 ---
 title: Linear Integration (Coming soon...)
-description: Complete guide for setting up Linear integration with OpenHands Cloud, including service account creation, API key generation, webhook configuration, and workspace integration setup.
+description: Complete guide for setting up Linear integration with Gentle Fist Cloud, including service account creation, API key generation, webhook configuration, and workspace integration setup.
 ---
 
 # Linear Integration
@@ -32,7 +32,7 @@ description: Complete guide for setting up Linear integration with OpenHands Clo
 
 2. **Create Personal API Key**
    - Click **Create new key**
-   - Name: `OpenHands Cloud Integration`
+   - Name: `Gentle Fist Cloud Integration`
    - Scopes: Select the following:
      - `Read` - Read access to issues and comments
      - `Create comments` - Ability to create or update comments
@@ -47,8 +47,8 @@ description: Complete guide for setting up Linear integration with OpenHands Clo
    - Click **New webhook**
 
 2. **Configure Webhook**
-   - **Label**: `OpenHands Cloud Integration`
-   - **URL**: `https://app.all-hands.dev/integration/linear/events`
+   - **Label**: `Gentle Fist Cloud Integration`
+   - **URL**: `https://gentle-fist.dev/integration/linear/events`
    - **Resource types**: Select:
      - `Comment` - For comment events
      - `Issue` - For issue updates (label changes)
@@ -60,12 +60,12 @@ description: Complete guide for setting up Linear integration with OpenHands Clo
 
 ## Workspace Integration
 
-### Step 1: Log in to OpenHands Cloud
+### Step 1: Log in to Gentle Fist Cloud
 
 1. **Navigate and Authenticate**
-   - Go to [OpenHands Cloud](https://app.all-hands.dev/)
+   - Go to [Gentle Fist Cloud](https://gentle-fist.dev/)
    - Sign in with your Git provider (GitHub, GitLab, or BitBucket)
-   - **Important:** Make sure you're signing in with the same Git provider account that contains the repositories you want the OpenHands agent to work on.
+   - **Important:** Make sure you're signing in with the same Git provider account that contains the repositories you want the Gentle Fist agent to work on.
 
 ### Step 2: Configure Linear Integration
 
@@ -93,7 +93,7 @@ Here the workspace name is **allhands**.
 3. **Complete OAuth Flow**
    - You'll be redirected to Linear to complete OAuth verification
    - Grant the necessary permissions to verify your workspace access. If you have access to multiple workspaces, select the correct one that you initially provided
-   - If successful, you will be redirected back to the **Integrations** settings in the OpenHands Cloud UI
+   - If successful, you will be redirected back to the **Integrations** settings in the Gentle Fist Cloud UI
 
 ### Managing Your Integration
 

@@ -1,4 +1,4 @@
-###################### OpenHands Configuration Example ######################
+###################### Gentle Fist Configuration Example ######################
 #
 # All settings have default values, so you only need to uncomment and
 # modify what you want to change
@@ -325,8 +325,9 @@ classpath = "my_package.my_module.MyCustomAgent"
 # Force rebuild of runtime image even if it exists
 #force_rebuild_runtime = false
 
-# Runtime container image to use (if not provided, will be built from base_container_image)
-#runtime_container_image = ""
+# Runtime container image. Defaults to the Gentle Fist Machine.
+# Build: docker build -f containers/machine/Dockerfile -t gentlefist/machine:latest .
+#runtime_container_image = "gentlefist/machine:latest"
 
 # Keep runtime alive after session ends
 #keep_runtime_alive = false
@@ -350,7 +351,7 @@ classpath = "my_package.my_module.MyCustomAgent"
 #docker_runtime_kwargs = {}
 
 # Specific port to use for VSCode. If not set, a random port will be chosen.
-# Useful when deploying OpenHands in a remote machine where you need to expose a specific port.
+# Useful when deploying Gentle Fist in a remote machine where you need to expose a specific port.
 #vscode_port = 41234
 
 # Volume mounts in the format 'host_path:container_path[:mode]'
@@ -450,7 +451,7 @@ type = "noop"
 # Kubernetes configuration when using the Kubernetes runtime
 ##############################################################################
 [kubernetes]
-# The Kubernetes namespace to use for OpenHands resources
+# The Kubernetes namespace to use for Gentle Fist resources
 #namespace = "default"
 
 # Domain for ingress resources
@@ -491,7 +492,7 @@ type = "noop"
 
 #################################### MCP #####################################
 # Configuration for Model Context Protocol (MCP) servers
-# MCP allows OpenHands to communicate with external tool servers
+# MCP allows Gentle Fist to communicate with external tool servers
 ##############################################################################
 [mcp]
 # SSE servers - Server-Sent Events transport (legacy)

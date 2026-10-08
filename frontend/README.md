@@ -1,8 +1,8 @@
-# Getting Started with the OpenHands Frontend
+# Getting Started with the Gentle Fist Frontend
 
 ## Overview
 
-This is the frontend of the OpenHands project. It is a React application that provides a web interface for the OpenHands project.
+This is the frontend of the Gentle Fist project. It is a React application that provides a web interface for the Gentle Fist project.
 
 ## Tech Stack
 
@@ -30,7 +30,7 @@ This is the frontend of the OpenHands project. It is a React application that pr
 git clone https://github.com/All-Hands-AI/OpenHands.git
 
 # Change the directory to the frontend
-cd OpenHands/frontend
+cd Gentle Fist/frontend
 
 # Install the dependencies
 npm install

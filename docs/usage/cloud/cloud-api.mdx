@@ -1,18 +1,18 @@
 ---
 title: Cloud API
-description: OpenHands Cloud provides a REST API that allows you to programmatically interact with OpenHands.
+description: Gentle Fist Cloud provides a REST API that allows you to programmatically interact with Gentle Fist.
   This guide explains how to obtain an API key and use the API to start conversations and retrieve their status.
 ---
 
 For the available API endpoints, refer to the
-[OpenHands API Reference](https://docs.all-hands.dev/api-reference).
+[Gentle Fist API Reference](https://gentle-fist.dev/api-reference).
 
 ## Obtaining an API Key
 
-To use the OpenHands Cloud API, you'll need to generate an API key:
+To use the Gentle Fist Cloud API, you'll need to generate an API key:
 
-1. Log in to your [OpenHands Cloud](https://app.all-hands.dev) account.
-2. Navigate to the [Settings > API Keys](https://app.all-hands.dev/settings/api-keys) page.
+1. Log in to your [Gentle Fist Cloud](https://gentle-fist.dev) account.
+2. Navigate to the [Settings > API Keys](https://gentle-fist.dev/settings/api-keys) page.
 3. Click `Create API Key`.
 4. Give your key a descriptive name (Example: "Development" or "Production") and select `Create`.
 5. Copy the generated API key and store it securely. It will only be shown once.
@@ -21,7 +21,7 @@ To use the OpenHands Cloud API, you'll need to generate an API key:
 
 ### Starting a New Conversation
 
-To start a new conversation with OpenHands to perform a task, you'll need to make a POST request to the conversation endpoint.
+To start a new conversation with Gentle Fist to perform a task, you'll need to make a POST request to the conversation endpoint.
 
 #### Request Parameters
 
@@ -35,7 +35,7 @@ To start a new conversation with OpenHands to perform a task, you'll need to mak
 
 <Accordion title="cURL">
   ```bash
-  curl -X POST "https://app.all-hands.dev/api/conversations" \
+  curl -X POST "https://gentle-fist.dev/api/conversations" \
     -H "Authorization: Bearer YOUR_API_KEY" \
     -H "Content-Type: application/json" \
     -d '{
@@ -50,7 +50,7 @@ To start a new conversation with OpenHands to perform a task, you'll need to mak
   import requests
 
   api_key = "YOUR_API_KEY"
-  url = "https://app.all-hands.dev/api/conversations"
+  url = "https://gentle-fist.dev/api/conversations"
 
   headers = {
       "Authorization": f"Bearer {api_key}",
@@ -65,7 +65,7 @@ To start a new conversation with OpenHands to perform a task, you'll need to mak
   response = requests.post(url, headers=headers, json=data)
   conversation = response.json()
 
-  print(f"Conversation Link: https://app.all-hands.dev/conversations/{conversation['conversation_id']}")
+  print(f"Conversation Link: https://gentle-fist.dev/conversations/{conversation['conversation_id']}")
   print(f"Status: {conversation['status']}")
   ```
 </Accordion>
@@ -73,7 +73,7 @@ To start a new conversation with OpenHands to perform a task, you'll need to mak
 <Accordion title="TypeScript/JavaScript (with fetch)">
   ```typescript
   const apiKey = "YOUR_API_KEY";
-  const url = "https://app.all-hands.dev/api/conversations";
+  const url = "https://gentle-fist.dev/api/conversations";
 
   const headers = {
     "Authorization": `Bearer ${apiKey}`,
@@ -95,7 +95,7 @@ To start a new conversation with OpenHands to perform a task, you'll need to mak
 
       const conversation = await response.json();
 
-      console.log(`Conversation Link: https://app.all-hands.dev/conversations/${conversation.id}`);
+      console.log(`Conversation Link: https://gentle-fist.dev/conversations/${conversation.id}`);
       console.log(`Status: ${conversation.status}`);
 
       return conversation;
@@ -133,14 +133,14 @@ You can check the status of a conversation by making a GET request to the conver
 #### Endpoint
 
 ```
-GET https://app.all-hands.dev/api/conversations/{conversation_id}
+GET https://gentle-fist.dev/api/conversations/{conversation_id}
 ```
 
 #### Example
 
 <Accordion title="cURL">
   ```bash
-  curl -X GET "https://app.all-hands.dev/api/conversations/{conversation_id}" \
+  curl -X GET "https://gentle-fist.dev/api/conversations/{conversation_id}" \
     -H "Authorization: Bearer YOUR_API_KEY"
   ```
 </Accordion>

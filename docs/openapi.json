@@ -1,8 +1,8 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "OpenHands",
-    "description": "OpenHands: Code Less, Make More",
+    "title": "Gentle Fist",
+    "description": "Gentle Fist: Code Less, Make More",
     "version": "0.53.0"
   },
   "paths": {
@@ -3720,7 +3720,7 @@
         },
         "type": "object",
         "title": "Settings",
-        "description": "Persisted settings for OpenHands sessions"
+        "description": "Persisted settings for Gentle Fist sessions"
       },
       "SuggestedTask": {
         "properties": {
@@ -3931,7 +3931,7 @@
   },
   "servers": [
     {
-      "url": "https://app.all-hands.dev",
+      "url": "https://gentle-fist.dev",
       "description": "Production server"
     },
     {

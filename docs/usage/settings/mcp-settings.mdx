@@ -1,18 +1,18 @@
 ---
 title: Model Context Protocol (MCP)
-description: This page outlines how to configure and use the Model Context Protocol (MCP) in OpenHands, allowing you
+description: This page outlines how to configure and use the Model Context Protocol (MCP) in Gentle Fist, allowing you
   to extend the agent's capabilities with custom tools.
 ---
 
 ## Overview
 
-Model Context Protocol (MCP) is a mechanism that allows OpenHands to communicate with external tool servers. These
+Model Context Protocol (MCP) is a mechanism that allows Gentle Fist to communicate with external tool servers. These
 servers can provide additional functionality to the agent, such as specialized data processing, external API access,
 or custom tools. MCP is based on the open standard defined at [modelcontextprotocol.io](https://modelcontextprotocol.io).
 
 ## Supported MCPs
 
-OpenHands supports the following MCP transport protocols:
+Gentle Fist supports the following MCP transport protocols:
 
 * [Server-Sent Events (SSE)](https://modelcontextprotocol.io/specification/2024-11-05/basic/transports#http-with-sse)
 * [Streamable HTTP (SHTTP)](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports#streamable-http)
@@ -20,7 +20,7 @@ OpenHands supports the following MCP transport protocols:
 
 ## How MCP Works
 
-When OpenHands starts, it:
+When Gentle Fist starts, it:
 
 1. Reads the MCP configuration.
 2. Connects to any configured SSE and SHTTP servers.
@@ -29,14 +29,14 @@ When OpenHands starts, it:
 
 The agent can then use these tools just like any built-in tool. When the agent calls an MCP tool:
 
-1. OpenHands routes the call to the appropriate MCP server.
+1. Gentle Fist routes the call to the appropriate MCP server.
 2. The server processes the request and returns a response.
-3. OpenHands converts the response to an observation and presents it to the agent.
+3. Gentle Fist converts the response to an observation and presents it to the agent.
 
 ## Configuration
 
 MCP configuration can be defined in:
-* The OpenHands UI in the `Settings > MCP` page.
+* The Gentle Fist UI in the `Settings > MCP` page.
 * The `config.toml` file under the `[mcp]` section if not using the UI.
 
 ### Configuration Options
@@ -130,7 +130,7 @@ supergateway --stdio "npx @modelcontextprotocol/server-filesystem /" --port 8080
 supergateway --stdio "uvx mcp-server-fetch" --port 8081
 ```
 
-Then configure OpenHands to use the HTTP endpoint:
+Then configure Gentle Fist to use the HTTP endpoint:
 
 ```toml
 [mcp]
