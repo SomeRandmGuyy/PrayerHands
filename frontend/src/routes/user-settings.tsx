@@ -41,7 +41,7 @@ function EmailInputSection({
             type="email"
             value={email}
             onChange={onEmailChange}
-            className={`text-base text-white p-2 bg-base-tertiary rounded-sm border ${
+            className={`text-base text-content p-2 bg-base-tertiary rounded-sm border ${
               isEmailChanged && !isEmailValid
                 ? "border-red-500"
                 : "border-tertiary"

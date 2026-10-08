@@ -42,7 +42,7 @@ export function ServerStatus({
       return "#FFD600";
     }
     if (isStopStatus) {
-      return "#ffffff";
+      return "#4b5563";
     }
     if (curAgentState === AgentState.ERROR) {
       return "#FF684E";
@@ -96,7 +96,7 @@ export function ServerStatus({
     <div className={`relative ${className}`}>
       <div className="flex items-center cursor-pointer" onClick={handleClick}>
         <DebugStackframeDot className="w-6 h-6" color={statusColor} />
-        <span className="text-[11px] text-white font-normal leading-5">
+        <span className="text-[11px] text-content font-normal leading-5">
           {statusText}
         </span>
       </div>

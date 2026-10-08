@@ -53,7 +53,7 @@ function LlmApiKeyManager({
 
   return (
     <div className="border-b border-gray-200 pb-6 mb-6 flex flex-col gap-6">
-      <h3 className="text-xl font-medium text-white">
+      <h3 className="text-xl font-medium text-content">
         {t(I18nKey.SETTINGS$LLM_API_KEY)}
       </h3>
       <div className="flex items-center justify-between">
@@ -80,15 +80,15 @@ function LlmApiKeyManager({
               {llmApiKey.key ? (
                 <div className="flex items-center">
                   {showLlmApiKey ? (
-                    <span className="text-white font-mono">
+                    <span className="text-content font-mono">
                       {llmApiKey.key}
                     </span>
                   ) : (
-                    <span className="text-white">{"•".repeat(20)}</span>
+                    <span className="text-content">{"•".repeat(20)}</span>
                   )}
                 </div>
               ) : (
-                <span className="text-white">
+                <span className="text-content">
                   {t(I18nKey.API$NO_KEY_AVAILABLE)}
                 </span>
               )}
@@ -97,7 +97,7 @@ function LlmApiKeyManager({
               {llmApiKey.key && (
                 <button
                   type="button"
-                  className="text-white hover:text-gray-300 mr-2"
+                  className="text-content hover:text-gray-300 mr-2"
                   aria-label={showLlmApiKey ? "Hide API key" : "Show API key"}
                   title={showLlmApiKey ? "Hide API key" : "Show API key"}
                   onClick={() => setShowLlmApiKey(!showLlmApiKey)}
@@ -111,7 +111,7 @@ function LlmApiKeyManager({
               )}
               <button
                 type="button"
-                className="text-white hover:text-gray-300 mr-2"
+                className="text-content hover:text-gray-300 mr-2"
                 aria-label="Copy API key"
                 title="Copy API key"
                 onClick={() => {
@@ -256,7 +256,7 @@ export function ApiKeysManager() {
           refreshLlmApiKey={refreshLlmApiKey}
         />
 
-        <h3 className="text-xl font-medium text-white">
+        <h3 className="text-xl font-medium text-content">
           {t(I18nKey.SETTINGS$OPENHANDS_API_KEYS)}
         </h3>
 
@@ -276,7 +276,7 @@ export function ApiKeysManager() {
             components={{
               a: (
                 <a
-                  href="https://docs.all-hands.dev/usage/cloud/cloud-api"
+                  href="https://gentle-fist.dev/usage/cloud/cloud-api"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-400 hover:underline"

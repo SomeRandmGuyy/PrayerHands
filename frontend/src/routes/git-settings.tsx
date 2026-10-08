@@ -127,7 +127,7 @@ function GitSettingsScreen() {
           {shouldRenderExternalConfigureButtons && !isLoading && (
             <>
               <div className="pb-1 flex flex-col">
-                <h3 className="text-xl font-medium text-white">
+                <h3 className="text-xl font-medium text-content">
                   {t(I18nKey.SETTINGS$GITHUB)}
                 </h3>
                 <ConfigureGitHubRepositoriesAnchor slug={config.APP_SLUG!} />
@@ -139,7 +139,7 @@ function GitSettingsScreen() {
           {shouldRenderExternalConfigureButtons && !isLoading && (
             <>
               <div className="pb-1 mt-6 flex flex-col">
-                <h3 className="text-xl font-medium text-white">
+                <h3 className="text-xl font-medium text-content">
                   {t(I18nKey.SETTINGS$SLACK)}
                 </h3>
                 <InstallSlackAppAnchor />

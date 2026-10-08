@@ -377,7 +377,7 @@ export function MCPServerForm({
               placeholder="arg1&#10;arg2&#10;arg3"
               className={cn(
                 "bg-tertiary border border-[#717888] w-full rounded-sm p-2 placeholder:italic placeholder:text-tertiary-alt resize-none",
-                "disabled:bg-[#2D2F36] disabled:border-[#2D2F36] disabled:cursor-not-allowed",
+                "disabled:bg-base-tertiary disabled:border-tertiary disabled:cursor-not-allowed",
               )}
             />
             <p className="text-xs text-tertiary-alt">
@@ -401,7 +401,7 @@ export function MCPServerForm({
               className={cn(
                 "resize-none",
                 "bg-tertiary border border-[#717888] rounded-sm p-2 placeholder:italic placeholder:text-tertiary-alt",
-                "disabled:bg-[#2D2F36] disabled:border-[#2D2F36] disabled:cursor-not-allowed",
+                "disabled:bg-base-tertiary disabled:border-tertiary disabled:cursor-not-allowed",
               )}
             />
           </label>

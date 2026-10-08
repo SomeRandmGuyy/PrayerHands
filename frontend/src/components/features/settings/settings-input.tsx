@@ -64,8 +64,8 @@ export function SettingsInput({
         required={required}
         pattern={pattern}
         className={cn(
-          "bg-tertiary border border-[#717888] h-10 w-full rounded-sm p-2 placeholder:italic placeholder:text-tertiary-alt",
-          "disabled:bg-[#2D2F36] disabled:border-[#2D2F36] disabled:cursor-not-allowed",
+          "bg-base-secondary text-content border border-[#717888] h-10 w-full rounded-sm p-2 placeholder:italic placeholder:text-tertiary-alt",
+          "disabled:bg-base-tertiary disabled:border-tertiary disabled:text-basic disabled:cursor-not-allowed",
         )}
       />
     </label>

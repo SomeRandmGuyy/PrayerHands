@@ -102,13 +102,15 @@ export function MicroagentManagementMicroagentCard({
     >
       <div className="flex flex-col items-start gap-2">
         {statusText && (
-          <div className="px-[6px] py-[2px] text-[11px] font-medium bg-[#C9B97433] text-white rounded-2xl">
+          <div className="px-[6px] py-[2px] text-[11px] font-medium bg-[#C9B97433] text-content rounded-2xl">
             {statusText}
           </div>
         )}
-        <div className="text-white text-[16px] font-semibold">{cardTitle}</div>
+        <div className="text-content text-[16px] font-semibold">
+          {cardTitle}
+        </div>
         {!!microagent && (
-          <div className="text-white text-sm font-normal">
+          <div className="text-content text-sm font-normal">
             {microagent.path}
           </div>
         )}

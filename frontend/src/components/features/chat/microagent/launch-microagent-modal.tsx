@@ -64,7 +64,7 @@ export function LaunchMicroagentModal({
             <h2 className="font-bold text-[20px] leading-6 -tracking-[0.01em] flex items-center gap-2">
               {t("MICROAGENT$ADD_TO_MICROAGENT")}
               <a
-                href="https://docs.all-hands.dev/usage/prompting/microagents-overview#microagents-overview"
+                href="https://gentle-fist.dev/usage/prompting/microagents-overview#microagents-overview"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -77,7 +77,7 @@ export function LaunchMicroagentModal({
             </button>
           </div>
 
-          <Typography.Text className="text-sm text-[#A3A3A3] font-normal leading-5">
+          <Typography.Text className="text-sm text-basic font-normal leading-5">
             {t("MICROAGENT$DEFINITION")}
           </Typography.Text>
 
@@ -102,7 +102,7 @@ export function LaunchMicroagentModal({
                   rows={6}
                   className={cn(
                     "bg-tertiary border border-[#717888] w-full rounded p-2 placeholder:italic placeholder:text-tertiary-alt resize-none",
-                    "disabled:bg-[#2D2F36] disabled:border-[#2D2F36] disabled:cursor-not-allowed",
+                    "disabled:bg-base-tertiary disabled:border-tertiary disabled:cursor-not-allowed",
                   )}
                 />
               )}
@@ -131,7 +131,7 @@ export function LaunchMicroagentModal({
               <div className="flex items-center gap-2">
                 {t("MICROAGENT$ADD_TRIGGERS")}
                 <a
-                  href="https://docs.all-hands.dev/usage/prompting/microagents-keyword"
+                  href="https://gentle-fist.dev/usage/prompting/microagents-keyword"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

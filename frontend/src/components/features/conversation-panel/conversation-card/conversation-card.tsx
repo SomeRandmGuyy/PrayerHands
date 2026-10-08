@@ -107,7 +107,7 @@ export function ConversationCard({
       onClick={onClick}
       className={cn(
         "relative h-auto w-full p-3.5 border-b border-neutral-600 cursor-pointer",
-        "data-[context-menu-open=false]:hover:bg-[#454545]",
+        "data-[context-menu-open=false]:hover:bg-base-tertiary",
         conversationStatus === "ARCHIVED" && "opacity-60",
       )}
     >

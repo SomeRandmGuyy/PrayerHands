@@ -27,7 +27,7 @@ export function TaskItem({ task, index }: TaskItemProps) {
             </Typography.Text>
             <StatusBadge status={task.status} />
           </div>
-          <h4 className="font-medium text-white mb-1">{task.title}</h4>
+          <h4 className="font-medium text-content mb-1">{task.title}</h4>
           <Typography.Text className="text-xs text-gray-400 mb-1">
             {t("TASK_TRACKING_OBSERVATION$TASK_ID")}: {task.id}
           </Typography.Text>
