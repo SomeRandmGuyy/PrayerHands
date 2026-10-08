@@ -77,7 +77,10 @@ export default defineConfig(({ mode }) => {
     },
     server: {
       port: FE_PORT,
+      strictPort: true,
       host: true,
+      // The desktop shell loads this dev server inside a native window.
+      open: false,
       allowedHosts: true,
       proxy: {
         "/api": {
@@ -100,7 +103,7 @@ export default defineConfig(({ mode }) => {
         },
       },
       watch: {
-        ignored: ["**/node_modules/**", "**/.git/**"],
+        ignored: ["**/node_modules/**", "**/.git/**", "**/src-tauri/**"],
       },
     },
     ssr: {
