@@ -36,6 +36,28 @@ cd OpenHands/frontend
 npm install
 ```
 
+### Desktop application (Tauri)
+
+Gentle Fist ships as a desktop application. The native window loads this Vite app. It is not a browser tab.
+
+Install [Rust](https://www.rust-lang.org/tools/install) (the Tauri 2 shell uses the current stable toolchain), then:
+
+```sh
+cd frontend
+npm install
+npm run tauri:dev
+```
+
+`npm run desktop` is the same command. `npm run tauri:dev` starts the existing Vite dev server on port 3001 and opens a Gentle Fist window pointed at it. The Python API is still expected on port 3000; the Vite proxy and the desktop content-security policy allow `localhost` and `127.0.0.1` on ports 3000 and 3001.
+
+Build a release bundle (installer / app image) with:
+
+```sh
+cd frontend
+npm install
+npm run tauri build
+```
+
 ### Running the Application in Development Mode
 
 We use `msw` to mock the backend API. To start the application with the mocked backend, run the following command:

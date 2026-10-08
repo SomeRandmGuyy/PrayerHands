@@ -116,6 +116,20 @@ while comparing behaviour and performance.
 See [`julia_genie/README.md`](./julia_genie/README.md) for details on extending the Genie server and
 working with PythonCall.
 
+### Option 4: Desktop application
+
+Gentle Fist also runs as a desktop application. This is a native window, not a browser tab. The window loads the existing frontend.
+
+Install Rust, then from `frontend/`:
+
+```bash
+cd frontend
+npm install
+npm run tauri:dev
+```
+
+`npm run desktop` does the same thing. `npm run tauri build` produces a release bundle. See [`frontend/README.md`](./frontend/README.md) for the desktop build notes.
+
 ### Getting Started
 
 When you open the application, you'll be asked to choose an LLM provider and add an API key.
