@@ -9,8 +9,10 @@ export default [
   layout("routes/root-layout.tsx", [
     index("routes/home.tsx"),
     route("accept-tos", "routes/accept-tos.tsx"),
+    route("provider-login", "routes/provider-login.tsx"),
     route("settings", "routes/settings.tsx", [
       index("routes/llm-settings.tsx"),
+      route("providers", "routes/provider-subscriptions.tsx"),
       route("mcp", "routes/mcp-settings.tsx"),
       route("user", "routes/user-settings.tsx"),
       route("integrations", "routes/git-settings.tsx"),

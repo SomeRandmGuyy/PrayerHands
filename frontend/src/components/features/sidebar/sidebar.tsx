@@ -41,7 +41,8 @@ export function Sidebar() {
   React.useEffect(() => {
     if (shouldHideLlmSettings) return;
 
-    if (location.pathname === "/settings") {
+    const path = location.pathname;
+    if (path === "/provider-login" || path.startsWith("/settings")) {
       setSettingsModalIsOpen(false);
     } else if (
       !isFetchingSettings &&

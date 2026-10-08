@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { AxiosError } from "axios";
-import { useSearchParams } from "react-router";
+import { Link, useSearchParams } from "react-router";
 import { ModelSelector } from "#/components/shared/modals/settings/model-selector";
 import { organizeModelsAndProviders } from "#/utils/organize-models-and-providers";
 import { useAIConfigOptions } from "#/hooks/query/use-ai-config-options";
@@ -531,6 +531,16 @@ function LlmSettingsScreen() {
                 linkText={t(I18nKey.SETTINGS$CLICK_FOR_INSTRUCTIONS)}
                 href="https://docs.all-hands.dev/usage/local-setup#getting-an-api-key"
               />
+              <p className="text-sm text-[#A3A3A3]">
+                {t(I18nKey.PROVIDERS$API_KEY_ALTERNATIVE)}{" "}
+                <Link
+                  to="/settings/providers"
+                  data-testid="provider-subscriptions-link"
+                  className="underline underline-offset-2 text-white"
+                >
+                  {t(I18nKey.PROVIDERS$SIGN_IN)}
+                </Link>
+              </p>
 
               {config?.APP_MODE !== "saas" && (
                 <SettingsInput
@@ -613,6 +623,16 @@ function LlmSettingsScreen() {
                 linkText={t(I18nKey.SETTINGS$CLICK_FOR_INSTRUCTIONS)}
                 href="https://docs.all-hands.dev/usage/local-setup#getting-an-api-key"
               />
+              <p className="text-sm text-[#A3A3A3]">
+                {t(I18nKey.PROVIDERS$API_KEY_ALTERNATIVE)}{" "}
+                <Link
+                  to="/settings/providers"
+                  data-testid="provider-subscriptions-link-advanced"
+                  className="underline underline-offset-2 text-white"
+                >
+                  {t(I18nKey.PROVIDERS$SIGN_IN)}
+                </Link>
+              </p>
 
               {config?.APP_MODE !== "saas" && (
                 <>
