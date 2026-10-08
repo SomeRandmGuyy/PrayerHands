@@ -13,15 +13,21 @@ from openhands.runtime.builder.base import RuntimeBuilder
 from openhands.utils.term_color import TermColor, colorize
 
 
+def _is_podman(version_info: dict) -> bool:
+    components = version_info.get('Components') or []
+    if not components or not isinstance(components[0], dict):
+        return False
+    name = components[0].get('Name') or ''
+    return str(name).startswith('Podman')
+
+
 class DockerRuntimeBuilder(RuntimeBuilder):
     def __init__(self, docker_client: docker.DockerClient):
         self.docker_client = docker_client
 
         version_info = self.docker_client.version()
         server_version = version_info.get('Version', '').replace('-', '.')
-        self.is_podman = (
-            version_info.get('Components')[0].get('Name').startswith('Podman')
-        )
+        self.is_podman = _is_podman(version_info)
         if (
             tuple(map(int, server_version.split('.')[:2])) < (18, 9)
             and not self.is_podman
@@ -79,9 +85,7 @@ class DockerRuntimeBuilder(RuntimeBuilder):
         self.docker_client = docker.from_env()
         version_info = self.docker_client.version()
         server_version = version_info.get('Version', '').split('+')[0].replace('-', '.')
-        self.is_podman = (
-            version_info.get('Components')[0].get('Name').startswith('Podman')
-        )
+        self.is_podman = _is_podman(version_info)
         if tuple(map(int, server_version.split('.'))) < (18, 9) and not self.is_podman:
             raise AgentRuntimeBuildError(
                 'Docker server version must be >= 18.09 to use BuildKit'
