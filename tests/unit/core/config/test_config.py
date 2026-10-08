@@ -434,6 +434,10 @@ def test_defaults_dict_after_updates(default_config):
         defaults_after_updates['sandbox']['base_container_image']['default']
         == 'nikolaik/python-nodejs:python3.12-nodejs22'
     )
+    assert (
+        defaults_after_updates['sandbox']['runtime_container_image']['default']
+        == 'gentlefist/machine:latest'
+    )
     assert defaults_after_updates == initial_defaults
 
 

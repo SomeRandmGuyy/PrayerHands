@@ -7,7 +7,8 @@ def stop_all_containers(prefix: str) -> None:
         containers = docker_client.containers.list(all=True)
         for container in containers:
             try:
-                if container.name.startswith(prefix):
+                name = container.name
+                if isinstance(name, str) and name.startswith(prefix):
                     container.stop()
             except docker.errors.APIError:
                 pass

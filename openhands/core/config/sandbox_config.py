@@ -55,7 +55,13 @@ class SandboxConfig(BaseModel):
     base_container_image: str | None = Field(
         default='nikolaik/python-nodejs:python3.12-nodejs22'
     )
-    runtime_container_image: str | None = Field(default=None)
+    runtime_container_image: str | None = Field(
+        default='gentlefist/machine:latest',
+        description=(
+            'Gentle Fist Machine image used as the agent sandbox. '
+            'Build it with containers/machine/Dockerfile.'
+        ),
+    )
     user_id: int = Field(default=os.getuid() if hasattr(os, 'getuid') else 1000)
     logger.debug(f'SandboxConfig user_id default: {user_id}')
     timeout: int = Field(default=120)
