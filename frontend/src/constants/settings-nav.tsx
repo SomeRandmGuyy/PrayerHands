@@ -35,6 +35,11 @@ export const SAAS_NAV_ITEMS: SettingsNavItem[] = [
   },
   {
     icon: <CreditCardIcon width={22} height={22} />,
+    to: "/settings/providers",
+    text: "SETTINGS$NAV_PROVIDERS",
+  },
+  {
+    icon: <CreditCardIcon width={22} height={22} />,
     to: "/settings/billing",
     text: "SETTINGS$NAV_BILLING",
   },
@@ -60,6 +65,11 @@ export const OSS_NAV_ITEMS: SettingsNavItem[] = [
     icon: <CircuitIcon width={22} height={22} />,
     to: "/settings",
     text: "SETTINGS$NAV_LLM",
+  },
+  {
+    icon: <CreditCardIcon width={22} height={22} />,
+    to: "/settings/providers",
+    text: "SETTINGS$NAV_PROVIDERS",
   },
   {
     icon: <ServerProcessIcon width={22} height={22} />,

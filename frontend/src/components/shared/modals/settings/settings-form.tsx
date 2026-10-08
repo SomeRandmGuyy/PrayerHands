@@ -1,4 +1,4 @@
-import { useLocation } from "react-router";
+import { Link, useLocation } from "react-router";
 import { useTranslation } from "react-i18next";
 import React from "react";
 import posthog from "posthog-js";
@@ -102,6 +102,16 @@ export function SettingsForm({ settings, models, onClose }: SettingsFormProps) {
             size="settings"
             linkColor="white"
           />
+          <p className="text-sm text-[#A3A3A3]">
+            {t(I18nKey.PROVIDERS$API_KEY_ALTERNATIVE)}{" "}
+            <Link
+              to="/settings/providers"
+              data-testid="provider-subscriptions-link"
+              className="underline underline-offset-2 text-white"
+            >
+              {t(I18nKey.PROVIDERS$SIGN_IN)}
+            </Link>
+          </p>
         </div>
 
         <div className="flex flex-col gap-2">
