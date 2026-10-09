@@ -71,8 +71,8 @@ const placeholder = computed(() => {
     </div>
 
     <form class="flex gap-1.5 border-t border-line px-3 py-2" data-testid="composer" @submit.prevent="submit">
-      <Input v-model="draft" :placeholder="placeholder" data-testid="composer-input" />
-      <Button type="submit">Send</Button>
+      <Input v-model="draft" :placeholder="placeholder" data-testid="composer-input" @keydown.enter.prevent="submit" />
+      <Button type="button" @click="submit">Send</Button>
     </form>
   </section>
 </template>

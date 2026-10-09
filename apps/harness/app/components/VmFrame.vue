@@ -48,6 +48,9 @@ onUnmounted(() => {
         data-testid="webtop-frame"
         allow="clipboard-read; clipboard-write; fullscreen"
       />
+      <p v-if="railwayConnected" class="absolute inset-x-2 bottom-2 z-10 rounded-md bg-white/95 px-2 py-1 text-[11px] leading-4 text-ink shadow">
+        Embedded {{ webtopUrl }}. That service currently asks for its own basic-auth login. This harness does not send that password, so a blank frame means the desktop has not authenticated.
+      </p>
       <div v-else class="flex h-full flex-col items-center justify-center gap-2 px-6 text-center">
         <GentleFistLogo :size="42" />
         <p class="font-medium">Desktop not connected</p>
