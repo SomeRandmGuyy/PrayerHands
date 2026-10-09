@@ -23,7 +23,9 @@ const projects = [
 ]
 
 function integration(id: string) {
-  return integrations.value.find((item) => item.id === id)
+  const list = integrations.value
+  if (!Array.isArray(list)) return undefined
+  return list.find((item) => item.id === id)
 }
 
 function selectProject(id: string) {

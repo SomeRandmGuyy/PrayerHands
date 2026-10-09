@@ -125,9 +125,13 @@ export function useHarness() {
   }
 
   async function refreshIntegrations() {
-    const data = await $fetch<{ railwayTokenConfigured: boolean; integrations: IntegrationReport[] }>('/api/integrations/status')
-    integrations.value = data.integrations
-    railwayTokenConfigured.value = data.railwayTokenConfigured
+    const data = await $fetch<unknown>('/api/integrations/status')
+    // The desktop shell is a static client. Tauri answers unknown /api paths with index.html,
+    // and assigning that body used to clear this list and unmount the side panel.
+    if (!data || typeof data !== 'object' || !Array.isArray((data as { integrations?: unknown }).integrations)) return
+    const body = data as { railwayTokenConfigured?: boolean; integrations: IntegrationReport[] }
+    integrations.value = body.integrations
+    railwayTokenConfigured.value = Boolean(body.railwayTokenConfigured)
   }
 
   function connectRailway() {
@@ -345,7 +349,7 @@ export function useHarness() {
   async function runSpin(name: string, execute: boolean) {
     spinError.value = ''
     try {
-      spinResult.value = await $fetch<SpinResult>('/api/railway/spin', {
+      const data = await $fetch<unknown>('/api/railway/spin', {
         method: 'POST',
         body: {
           name,
@@ -353,6 +357,11 @@ export function useHarness() {
           description: 'Created from the Gentle Fist harness',
         },
       })
+      if (!data || typeof data !== 'object' || !('plan' in data)) {
+        spinError.value = 'Spin hook is not available in this shell.'
+        return
+      }
+      spinResult.value = data as SpinResult
     } catch (error) {
       spinResult.value = null
       spinError.value = error instanceof Error ? error.message : 'Spin hook failed'
