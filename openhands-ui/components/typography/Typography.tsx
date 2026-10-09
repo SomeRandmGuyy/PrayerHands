@@ -83,7 +83,7 @@ export const Typography = {
   Code: ({ children, className, ...props }: TypographyProps) => (
     <BaseTypography
       as="span"
-      className={cn("tg-family-ibm-plex leading-[140%]", className)}
+      className={cn("tg-family-mono leading-[140%]", className)}
       {...props}
     >
       {children}

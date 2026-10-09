@@ -11,6 +11,7 @@ from litellm import (
 
 from openhands.agenthub.codeact_agent.tools import (
     BrowserTool,
+    ComputerUseTool,
     CondensationRequestTool,
     FinishTool,
     IPythonTool,
@@ -33,6 +34,7 @@ from openhands.events.action import (
     AgentThinkAction,
     BrowseInteractiveAction,
     CmdRunAction,
+    ComputerUseAction,
     FileEditAction,
     FileReadAction,
     IPythonRunCellAction,
@@ -248,6 +250,77 @@ def response_to_actions(
                         f'Missing required argument "code" in tool call {tool_call.function.name}'
                     )
                 action = BrowseInteractiveAction(browser_actions=arguments['code'])
+                set_security_risk(action, arguments)
+
+            # ================================================
+            # ComputerUseTool
+            # ================================================
+            elif tool_call.function.name == ComputerUseTool['function']['name']:
+                if 'action' not in arguments:
+                    raise FunctionCallValidationError(
+                        f'Missing required argument "action" in tool call {tool_call.function.name}'
+                    )
+                computer_action = str(arguments['action'])
+
+                def _coordinate(value: object, arg_name: str) -> list[int] | None:
+                    if value is None:
+                        return None
+                    if (
+                        not isinstance(value, list)
+                        or len(value) != 2
+                        or not all(isinstance(c, (int, float)) for c in value)
+                    ):
+                        raise FunctionCallValidationError(
+                            f'Invalid {arg_name} in tool call {tool_call.function.name}: expected [x, y]'
+                        )
+                    return [int(value[0]), int(value[1])]
+
+                computer_use_action = ComputerUseAction(
+                    computer_action=computer_action,
+                    coordinate=_coordinate(arguments.get('coordinate'), 'coordinate'),
+                    start_coordinate=_coordinate(
+                        arguments.get('start_coordinate'), 'start_coordinate'
+                    ),
+                    text=(
+                        str(arguments['text'])
+                        if arguments.get('text') is not None
+                        else None
+                    ),
+                    scroll_direction=arguments.get('scroll_direction'),
+                    scroll_amount=arguments.get('scroll_amount'),
+                    duration=(
+                        float(arguments['duration'])
+                        if arguments.get('duration') is not None
+                        else None
+                    ),
+                )
+                if computer_action == 'mouse_move' and not computer_use_action.coordinate:
+                    raise FunctionCallValidationError(
+                        f'"mouse_move" requires "coordinate" in tool call {tool_call.function.name}'
+                    )
+                if computer_action == 'left_click_drag' and not (
+                    computer_use_action.start_coordinate and computer_use_action.coordinate
+                ):
+                    raise FunctionCallValidationError(
+                        f'"left_click_drag" requires "start_coordinate" and "coordinate" in tool call {tool_call.function.name}'
+                    )
+                if computer_action in ('type', 'key', 'hold_key') and arguments.get(
+                    'text'
+                ) is None:
+                    raise FunctionCallValidationError(
+                        f'"{computer_action}" requires "text" in tool call {tool_call.function.name}'
+                    )
+                if computer_action == 'scroll' and not arguments.get(
+                    'scroll_direction'
+                ):
+                    raise FunctionCallValidationError(
+                        f'"scroll" requires "scroll_direction" in tool call {tool_call.function.name}'
+                    )
+                if computer_action == 'hold_key' and arguments.get('duration') is None:
+                    raise FunctionCallValidationError(
+                        f'"hold_key" requires "duration" in tool call {tool_call.function.name}'
+                    )
+                action = computer_use_action
                 set_security_risk(action, arguments)
 
             # ================================================

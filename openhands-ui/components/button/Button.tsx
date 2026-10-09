@@ -57,7 +57,7 @@ export const Button = ({
       <span
         ref={textRef}
         className={cn(
-          "tg-family-outfit tg-lg text-center font-normal leading-[100%]",
+          "tg-family-display tg-lg text-center font-normal leading-[100%]",
           buttonClassNames.text,
           !props.disabled && `button-bold-text`
         )}

@@ -9,19 +9,39 @@
   preferredstrategy: "pseudoelements";
 }
 
+@theme {
+  --font-sans: "DM Sans", -apple-system, "SF Pro", BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Helvetica Neue", sans-serif;
+  --font-mono: "Space Mono", "IBM Plex Mono", Menlo, Monaco, Consolas,
+    monospace;
+
+  /* Greptile blues: Morning Dew and Shale anchored */
+  --color-blue-50: #F4F9FF;
+  --color-blue-100: #E8F3FF;
+  --color-blue-200: #D1E5FF;
+  --color-blue-300: #BFD8F5;
+  --color-blue-400: #A1C1DA;
+  --color-blue-500: #7EA3C4;
+  --color-blue-600: #5E87AB;
+  --color-blue-700: #476B8C;
+  --color-blue-800: #35526C;
+  --color-blue-900: #263D51;
+  --color-blue-950: #16283A;
+}
+
 /* OLD TAILWIND STYLES */
 @theme {
-  --color-primary: #c9b974;
-  --color-logo: #cfb755;
-  --color-base: #0d0f11;
-  --color-base-secondary: #24272e;
-  --color-danger: #e76a5e;
-  --color-success: #a5e75e;
-  --color-basic: #9099ac;
-  --color-tertiary: #454545;
-  --color-tertiary-light: #b7bdc2;
-  --color-content: #ecedee;
-  --color-content-2: #f9fbfe;
+  --color-primary: #daff01;
+  --color-logo: #daff01;
+  --color-base: #2a2a2a;
+  --color-base-secondary: #333333;
+  --color-danger: #ff6d6d;
+  --color-success: #c5ffd6;
+  --color-basic: #d6d6d6;
+  --color-tertiary: #4a4a4a;
+  --color-tertiary-light: #b8b8b8;
+  --color-content: #fefefe;
+  --color-content-2: #ffffff;
 }
 
 .button-base {
@@ -60,12 +80,12 @@
 
 /* Show scrollbar on hover */
 .custom-scrollbar:hover::-webkit-scrollbar-thumb {
-  background: rgba(208, 217, 250, 0.3);
+  background: rgba(209, 229, 255, 0.3);
   opacity: 1;
 }
 
 .custom-scrollbar:hover::-webkit-scrollbar-thumb:hover {
-  background: rgba(208, 217, 250, 0.5);
+  background: rgba(209, 229, 255, 0.5);
 }
 
 /* Firefox scrollbar styling */
@@ -76,7 +96,7 @@
 }
 
 .custom-scrollbar:hover {
-  scrollbar-color: rgba(208, 217, 250, 0.3) transparent;
+  scrollbar-color: rgba(209, 229, 255, 0.3) transparent;
 }
 
 /* Always visible scrollbar for chat interface */
@@ -90,19 +110,19 @@
 }
 
 .custom-scrollbar-always::-webkit-scrollbar-thumb {
-  background: rgba(208, 217, 250, 0.3);
+  background: rgba(209, 229, 255, 0.3);
   border-radius: 3px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .custom-scrollbar-always::-webkit-scrollbar-thumb:hover {
-  background: rgba(208, 217, 250, 0.5);
+  background: rgba(209, 229, 255, 0.5);
 }
 
 /* Firefox scrollbar styling for always visible */
 .custom-scrollbar-always {
   scrollbar-width: thin;
-  scrollbar-color: rgba(208, 217, 250, 0.3) transparent;
+  scrollbar-color: rgba(209, 229, 255, 0.3) transparent;
 }
 
 /* Custom styles for contenteditable */
@@ -162,8 +182,8 @@
 
 /* File preview styles */
 .file-preview {
-  background: rgba(208, 217, 250, 0.1);
-  border: 1px solid rgba(208, 217, 250, 0.3);
+  background: rgba(209, 229, 255, 0.1);
+  border: 1px solid rgba(209, 229, 255, 0.3);
   border-radius: 8px;
   padding: 8px;
   margin: 4px 0;
@@ -171,7 +191,7 @@
   align-items: center;
   gap: 8px;
   font-size: 12px;
-  color: #d0d9fa;
+  color: #d1e5ff;
 }
 
 .file-preview .file-icon {
@@ -188,7 +208,7 @@
 }
 
 .file-preview .file-size {
-  color: #959cb2;
+  color: #a1a1a1;
   font-size: 10px;
 }
 
@@ -202,7 +222,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #d0d9fa;
+  color: #d1e5ff;
   font-size: 10px;
   transition: background-color 0.2s;
 }
@@ -212,34 +232,34 @@
 }
 
 .loader {
-  background: #c9b974;
+  background: #daff01;
   animation: l5 1s infinite linear alternate;
 }
 
 @keyframes l5 {
   0% {
     box-shadow:
-      20px 0 #c9b974,
-      -20px 0 rgba(201, 185, 116, 0.1);
-    background: #c9b974;
+      20px 0 #daff01,
+      -20px 0 rgba(218, 255, 1, 0.1);
+    background: #daff01;
   }
   33% {
     box-shadow:
-      20px 0 #c9b974,
-      -20px 0 rgba(201, 185, 116, 0.1);
-    background: rgba(201, 185, 116, 0.1);
+      20px 0 #daff01,
+      -20px 0 rgba(218, 255, 1, 0.1);
+    background: rgba(218, 255, 1, 0.1);
   }
   66% {
     box-shadow:
-      20px 0 rgba(201, 185, 116, 0.1),
-      -20px 0 #c9b974;
-    background: rgba(201, 185, 116, 0.1);
+      20px 0 rgba(218, 255, 1, 0.1),
+      -20px 0 #daff01;
+    background: rgba(218, 255, 1, 0.1);
   }
   100% {
     box-shadow:
-      20px 0 rgba(201, 185, 116, 0.1),
-      -20px 0 #c9b974;
-    background: #c9b974;
+      20px 0 rgba(218, 255, 1, 0.1),
+      -20px 0 #daff01;
+    background: #daff01;
   }
 }
 
@@ -255,30 +275,30 @@
 }
 
 .xterm-viewport::-webkit-scrollbar-thumb {
-  background: rgba(71, 74, 84, 0.5);
+  background: rgba(90, 90, 90, 0.5);
   border-radius: 4px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 1;
 }
 
 .xterm-viewport:hover::-webkit-scrollbar-thumb {
-  background: rgba(71, 74, 84, 0.7);
+  background: rgba(90, 90, 90, 0.7);
   opacity: 1;
 }
 
 .xterm-viewport::-webkit-scrollbar-thumb:hover {
-  background: rgba(90, 93, 103, 0.7);
+  background: rgba(110, 110, 110, 0.7);
 }
 
 /* Firefox scrollbar styling for xterm */
 .xterm-viewport {
   scrollbar-width: thin;
-  scrollbar-color: rgba(71, 74, 84, 0.5) transparent;
+  scrollbar-color: rgba(90, 90, 90, 0.5) transparent;
   transition: scrollbar-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .xterm-viewport:hover {
-  scrollbar-color: rgba(71, 74, 84, 0.7) transparent;
+  scrollbar-color: rgba(90, 90, 90, 0.7) transparent;
 }
 
 /* Force text wrapping and proper overflow handling for xterm */

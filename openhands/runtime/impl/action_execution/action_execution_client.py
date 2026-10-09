@@ -25,6 +25,7 @@ from openhands.events.action import (
     BrowseInteractiveAction,
     BrowseURLAction,
     CmdRunAction,
+    ComputerUseAction,
     FileEditAction,
     FileReadAction,
     FileWriteAction,
@@ -360,6 +361,9 @@ class ActionExecutionClient(Runtime):
         return self.send_action_for_execution(action)
 
     def browse_interactive(self, action: BrowseInteractiveAction) -> Observation:
+        return self.send_action_for_execution(action)
+
+    def computer_use(self, action: ComputerUseAction) -> Observation:
         return self.send_action_for_execution(action)
 
     def get_mcp_config(

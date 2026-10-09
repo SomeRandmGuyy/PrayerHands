@@ -24,6 +24,9 @@ class AgentConfig(BaseModel):
     enable_browsing: bool = Field(default=True)
     """Whether to enable browsing tool.
     Note: If using CLIRuntime, browsing is not implemented and should be disabled."""
+    enable_computer_use: bool = Field(default=False)
+    """Whether to enable computer use tool (GUI control of the sandbox VM desktop via screenshots/mouse/keyboard).
+    Requires a runtime whose action execution server can reach the pixelflux Computer Use API (e.g. the Railway VM runtime)."""
     enable_llm_editor: bool = Field(default=False)
     """Whether to enable LLM editor tool"""
     enable_editor: bool = Field(default=True)

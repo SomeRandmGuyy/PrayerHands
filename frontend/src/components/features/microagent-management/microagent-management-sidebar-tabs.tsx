@@ -27,7 +27,7 @@ export function MicroagentManagementSidebarTabs({
           tab: "px-2 h-[22px]",
           tabContent: "text-white text-[12px] font-normal",
           panel: "p-0",
-          cursor: "bg-[#C9B97480] rounded-sm",
+          cursor: "bg-[#DAFF0180] rounded-sm",
         }}
       >
         <Tab key="personal" title={t(I18nKey.COMMON$PERSONAL)}>

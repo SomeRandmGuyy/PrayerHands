@@ -2,6 +2,7 @@ import datetime
 import os
 import subprocess
 import time
+from typing import Any
 
 import docker
 
@@ -13,15 +14,26 @@ from openhands.runtime.builder.base import RuntimeBuilder
 from openhands.utils.term_color import TermColor, colorize
 
 
+def _is_podman(version_info: Any) -> bool:
+    components = (
+        version_info.get('Components') if isinstance(version_info, dict) else None
+    )
+    if not isinstance(components, list) or not components:
+        return False
+    first = components[0]
+    if not isinstance(first, dict):
+        return False
+    name = first.get('Name')
+    return isinstance(name, str) and name.startswith('Podman')
+
+
 class DockerRuntimeBuilder(RuntimeBuilder):
     def __init__(self, docker_client: docker.DockerClient):
         self.docker_client = docker_client
 
         version_info = self.docker_client.version()
         server_version = version_info.get('Version', '').replace('-', '.')
-        self.is_podman = (
-            version_info.get('Components')[0].get('Name').startswith('Podman')
-        )
+        self.is_podman = _is_podman(version_info)
         if (
             tuple(map(int, server_version.split('.')[:2])) < (18, 9)
             and not self.is_podman
@@ -79,9 +91,7 @@ class DockerRuntimeBuilder(RuntimeBuilder):
         self.docker_client = docker.from_env()
         version_info = self.docker_client.version()
         server_version = version_info.get('Version', '').split('+')[0].replace('-', '.')
-        self.is_podman = (
-            version_info.get('Components')[0].get('Name').startswith('Podman')
-        )
+        self.is_podman = _is_podman(version_info)
         if tuple(map(int, server_version.split('.'))) < (18, 9) and not self.is_podman:
             raise AgentRuntimeBuildError(
                 'Docker server version must be >= 18.09 to use BuildKit'

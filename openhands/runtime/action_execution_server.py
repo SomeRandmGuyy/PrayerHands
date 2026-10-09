@@ -19,6 +19,7 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 from zipfile import ZipFile
 
+import httpx
 import puremagic
 from binaryornot.check import is_binary
 from fastapi import Depends, FastAPI, HTTPException, Request, UploadFile
@@ -42,6 +43,7 @@ from openhands.events.action import (
     BrowseInteractiveAction,
     BrowseURLAction,
     CmdRunAction,
+    ComputerUseAction,
     FileEditAction,
     FileReadAction,
     FileWriteAction,
@@ -50,6 +52,7 @@ from openhands.events.action import (
 from openhands.events.event import FileEditSource, FileReadSource
 from openhands.events.observation import (
     CmdOutputObservation,
+    ComputerUseObservation,
     ErrorObservation,
     FileDownloadObservation,
     FileEditObservation,
@@ -206,6 +209,17 @@ class ActionExecutor:
         self._initialized = False
         self.downloaded_files: list[str] = []
         self.downloads_directory = '/workspace/.downloads'
+
+        # pixelflux Computer Use API (Anthropic-compatible) on the sandbox VM.
+        # Enabled by setting OH_COMPUTER_USE_URL, or by the PIXELFLUX_CU port env.
+        computer_use_url: str | None
+        if url := os.environ.get('OH_COMPUTER_USE_URL'):
+            computer_use_url = url
+        elif port := os.environ.get('PIXELFLUX_CU'):
+            computer_use_url = f'http://localhost:{port}/computer-use'
+        else:
+            computer_use_url = None
+        self.computer_use_url = computer_use_url
 
         self.max_memory_gb: int | None = None
         if _override_max_memory_gb := os.environ.get('RUNTIME_MAX_MEMORY_GB', None):
@@ -641,6 +655,81 @@ class ActionExecutor:
                     file_path=tgt_path,
                 )
                 return file_download_obs
+
+    async def computer_use(self, action: ComputerUseAction) -> Observation:
+        """Forward a computer use action to the pixelflux Computer Use API.
+
+        pixelflux (Selkies streaming stack in the webtop VM) exposes an
+        Anthropic-compatible POST /computer-use endpoint on localhost.
+        """
+        if not self.computer_use_url:
+            return ErrorObservation(
+                'Computer use is not available on this runtime: the pixelflux '
+                'Computer Use API is not configured (set PIXELFLUX_CU or '
+                'OH_COMPUTER_USE_URL).'
+            )
+
+        payload: dict[str, object] = {'action': action.computer_action}
+        if action.start_coordinate is not None:
+            payload['start_coordinate'] = action.start_coordinate
+        if action.coordinate is not None:
+            payload['coordinate'] = action.coordinate
+        if action.text is not None:
+            payload['text'] = action.text
+        if action.scroll_direction is not None:
+            payload['scroll_direction'] = action.scroll_direction
+        if action.scroll_amount is not None:
+            payload['scroll_amount'] = action.scroll_amount
+        if action.duration is not None:
+            payload['duration'] = action.duration
+
+        timeout = action.timeout if action.timeout is not None else 120.0
+        try:
+            async with httpx.AsyncClient(timeout=timeout) as client:
+                response = await client.post(
+                    self.computer_use_url,
+                    json=payload,
+                )
+        except httpx.HTTPError as e:
+            logger.error(f'Computer use request failed: {e}')
+            return ComputerUseObservation(
+                content=f'Computer use request failed: {e}',
+                computer_action=action.computer_action,
+                error=True,
+            )
+
+        if response.status_code != 200:
+            return ComputerUseObservation(
+                content=f'Computer use API returned status {response.status_code}: {response.text}',
+                computer_action=action.computer_action,
+                error=True,
+            )
+
+        result = response.json()
+        if 'error' in result:
+            return ComputerUseObservation(
+                content=f'Computer use action failed: {result["error"]}',
+                computer_action=action.computer_action,
+                error=True,
+            )
+
+        if action.computer_action == 'screenshot' and 'data' in result:
+            return ComputerUseObservation(
+                content='Screenshot captured.',
+                computer_action=action.computer_action,
+                screenshot=f'data:image/png;base64,{result["data"]}',
+            )
+
+        if 'text' in result:
+            return ComputerUseObservation(
+                content=str(result['text']),
+                computer_action=action.computer_action,
+            )
+
+        return ComputerUseObservation(
+            content=f'Computer use action `{action.computer_action}` executed successfully.',
+            computer_action=action.computer_action,
+        )
 
     def close(self):
         self.memory_monitor.stop_monitoring()

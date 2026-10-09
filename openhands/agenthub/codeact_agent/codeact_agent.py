@@ -14,6 +14,7 @@ if TYPE_CHECKING:
 import openhands.agenthub.codeact_agent.function_calling as codeact_function_calling
 from openhands.agenthub.codeact_agent.tools.bash import create_cmd_run_tool
 from openhands.agenthub.codeact_agent.tools.browser import BrowserTool
+from openhands.agenthub.codeact_agent.tools.computer_use import ComputerUseTool
 from openhands.agenthub.codeact_agent.tools.condensation_request import (
     CondensationRequestTool,
 )
@@ -136,6 +137,8 @@ class CodeActAgent(Agent):
                 logger.warning('Windows runtime does not support browsing yet')
             else:
                 tools.append(BrowserTool)
+        if self.config.enable_computer_use:
+            tools.append(ComputerUseTool)
         if self.config.enable_jupyter:
             tools.append(IPythonTool)
         if self.config.enable_plan_mode:
