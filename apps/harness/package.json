@@ -1,0 +1,34 @@
+{
+  "name": "gentle-fist-harness",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^22.22.3 || ^24.15.0 || >=26.0.0"
+  },
+  "scripts": {
+    "dev": "nuxt dev --port 3001 --host 0.0.0.0",
+    "build": "nuxt build",
+    "typecheck": "nuxt typecheck",
+    "test": "node --experimental-strip-types --disable-warning=ExperimentalWarning tests/map-event.test.ts",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@lucide/vue": "^1.54.0",
+    "@tailwindcss/vite": "^4.1.16",
+    "@xterm/addon-fit": "^0.10.0",
+    "@xterm/xterm": "^5.5.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "nuxt": "4.6.0",
+    "reka-ui": "^2.5.1",
+    "socket.io-client": "^4.8.1",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.1.16"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "typescript": "^5.9.3",
+    "vue-tsc": "^3.1.1"
+  }
+}
