@@ -22,7 +22,9 @@ from openhands.storage.locations import (
 from openhands.utils.async_utils import call_sync_from_async
 from openhands.utils.search_utils import offset_to_page_id, page_id_to_offset
 
-conversation_metadata_type_adapter = TypeAdapter(ConversationMetadata)
+conversation_metadata_type_adapter: TypeAdapter[ConversationMetadata] = TypeAdapter(
+    ConversationMetadata
+)
 
 
 @dataclass
