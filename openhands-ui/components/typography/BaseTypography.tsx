@@ -32,7 +32,7 @@ export const BaseTypography = ({
       {...props}
       data-testid={testId}
       className={cn(
-        "tg-family-outfit text-white leading-[100%]",
+        "tg-family-display text-white leading-[100%]",
         fontSize ? fontSizes[fontSize] : undefined,
         fontWeight ? fontWeights[fontWeight] : undefined,
         className

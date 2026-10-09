@@ -11,7 +11,23 @@ export default heroui({
   themes: {
     dark: {
       colors: {
-        primary: "#4465DB",
+        primary: {
+          DEFAULT: "#DAFF01",
+          foreground: "#2A2A2A",
+        },
+        secondary: {
+          DEFAULT: "#756CF5",
+          foreground: "#FEFEFE",
+        },
+        success: {
+          DEFAULT: "#C5FFD6",
+          foreground: "#2A2A2A",
+        },
+        danger: {
+          DEFAULT: "#FF6D6D",
+          foreground: "#FEFEFE",
+        },
+        focus: "#756CF5",
       },
     },
   },

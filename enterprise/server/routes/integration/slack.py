@@ -354,8 +354,8 @@ async def on_form_interaction(request: Request, background_tasks: BackgroundTask
 
 def _html_response(title: str, description: str, status_code: int) -> HTMLResponse:
     content = (
-        '<style>body{background:#0d0f11;color:#ecedee;font-family:sans-serif;display:flex;justify-content:center;align-items:center;}</style>'
-        '<div style="box-sizing:border-box;border:1px solid #454545;padding:24px;width:384px;background:#24272e;border-radius:0.75rem;text-align:center;">'
+        '<style>body{background:#2a2a2a;color:#fefefe;font-family:sans-serif;display:flex;justify-content:center;align-items:center;}</style>'
+        '<div style="box-sizing:border-box;border:1px solid #4a4a4a;padding:24px;width:384px;background:#333333;border-radius:0.75rem;text-align:center;">'
         f'<h1 style="font-size:24px;">{title}</h1>'
         f'<p>{description}</p>'
         '<div>'
