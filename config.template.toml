@@ -68,6 +68,9 @@
 #run_as_openhands = true
 
 # Runtime environment
+# Available runtimes: "docker" (default), "remote", "local", "railway", "kubernetes", "cli"
+# The "railway" runtime executes actions inside a persistent VM hosted on Railway
+# (see railway_runtime_url under [sandbox] below).
 #runtime = "docker"
 
 # Name of the default agent
@@ -240,6 +243,11 @@ model = "gpt-4o"
 # Note: when this is set to true, enable_browser in the core config must also be true
 enable_browsing = true
 
+# Whether the computer use tool is enabled (GUI control of the sandbox VM desktop
+# via screenshots/mouse/keyboard). Requires the "railway" runtime with the pixelflux
+# Computer Use API configured on the VM (PIXELFLUX_CU).
+#enable_computer_use = false
+
 # Whether the LLM draft editor is enabled
 enable_llm_editor = false
 
@@ -289,6 +297,16 @@ classpath = "my_package.my_module.MyCustomAgent"
 # Configuration for the sandbox
 ##############################################################################
 [sandbox]
+# Base URL of the OpenHands action execution server running inside the Railway-hosted
+# VM, e.g. "https://<service>.up.railway.app". Required when runtime = "railway".
+# The VM boots the server via its Railway service start command
+# (scripts/railway/bootstrap_runtime.sh in this repo).
+#railway_runtime_url = ""
+
+# Session API key enforced by the action execution server inside the Railway VM
+# (the SESSION_API_KEY variable configured on the Railway service).
+#api_key = ""
+
 # Sandbox timeout in seconds
 #timeout = 120
 

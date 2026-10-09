@@ -10,6 +10,7 @@ class SandboxConfig(BaseModel):
 
     Attributes:
         remote_runtime_api_url: The hostname for the Remote Runtime API.
+        railway_runtime_url: The base URL of the action execution server inside the Railway-hosted VM (for the "railway" runtime).
         local_runtime_url: The default hostname for the local runtime. You may want to change to http://host.docker.internal for DIND environments
         base_container_image: The base container image from which to build the runtime image.
         runtime_container_image: The runtime container image to use.
@@ -47,6 +48,10 @@ class SandboxConfig(BaseModel):
     """
 
     remote_runtime_api_url: str | None = Field(default='http://localhost:8000')
+    railway_runtime_url: str | None = Field(
+        default=None,
+        description='Base URL of the action execution server running inside the Railway-hosted VM, e.g. https://<service>.up.railway.app. Required for the "railway" runtime.',
+    )
     local_runtime_url: str = Field(default='http://localhost')
     keep_runtime_alive: bool = Field(default=False)
     pause_closed_runtimes: bool = Field(default=True)

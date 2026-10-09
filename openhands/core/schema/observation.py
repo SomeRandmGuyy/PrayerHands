@@ -14,6 +14,10 @@ class ObservationType(str, Enum):
     """The HTML content of a URL
     """
 
+    COMPUTER_USE = 'computer_use'
+    """The result of controlling the sandbox VM desktop (screenshot or input status)
+    """
+
     RUN = 'run'
     """The output of a command
     """

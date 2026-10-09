@@ -42,6 +42,10 @@ class ActionType(str, Enum):
     """Interact with the browser instance.
     """
 
+    COMPUTER_USE = 'computer_use'
+    """Controls the desktop GUI of the sandbox VM via screenshots, mouse and keyboard.
+    """
+
     MCP = 'call_tool_mcp'
     """Interact with the MCP server.
     """

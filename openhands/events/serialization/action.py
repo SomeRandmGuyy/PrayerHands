@@ -18,6 +18,7 @@ from openhands.events.action.commands import (
     CmdRunAction,
     IPythonRunCellAction,
 )
+from openhands.events.action.computer import ComputerUseAction
 from openhands.events.action.empty import NullAction
 from openhands.events.action.files import (
     FileEditAction,
@@ -33,6 +34,7 @@ actions = (
     IPythonRunCellAction,
     BrowseURLAction,
     BrowseInteractiveAction,
+    ComputerUseAction,
     FileReadAction,
     FileWriteAction,
     FileEditAction,

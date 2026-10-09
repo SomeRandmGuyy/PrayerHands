@@ -1,5 +1,6 @@
 from .bash import create_cmd_run_tool
 from .browser import BrowserTool
+from .computer_use import ComputerUseTool
 from .condensation_request import CondensationRequestTool
 from .finish import FinishTool
 from .ipython import IPythonTool
@@ -9,6 +10,7 @@ from .think import ThinkTool
 
 __all__ = [
     'BrowserTool',
+    'ComputerUseTool',
     'CondensationRequestTool',
     'create_cmd_run_tool',
     'FinishTool',

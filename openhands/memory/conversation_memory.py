@@ -29,6 +29,7 @@ from openhands.events.observation import (
     AgentThinkObservation,
     BrowserOutputObservation,
     CmdOutputObservation,
+    ComputerUseObservation,
     FileDownloadObservation,
     FileEditObservation,
     FileReadObservation,
@@ -497,6 +498,16 @@ class ConversationMemory:
                             0
                         ].text += '\n\nNote: No visual information (screenshot or set of marks) is available for this webpage. The agent should rely on the text content above.'  # type: ignore[union-attr]
 
+            message = Message(role='user', content=content)
+        elif isinstance(obs, ComputerUseObservation):
+            text = truncate_content(obs.content, max_message_chars)
+            text_content = TextContent(text=text)
+            content = [text_content]
+            if vision_is_active and self._is_valid_image_url(obs.screenshot):
+                text_content.text += 'Image: Current VM desktop screenshot.\n'
+                content.append(
+                    ImageContent(image_urls=[obs.screenshot])  # type: ignore[list-item]
+                )
             message = Message(role='user', content=content)
         elif isinstance(obs, AgentDelegateObservation):
             text = truncate_content(
