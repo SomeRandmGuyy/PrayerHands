@@ -6,12 +6,25 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
   srcDir: 'app',
+  // Tauri bundles the static client from `.output/public` (`npm run generate`).
+  // The dev server stays on 3001 so `npm run tauri:dev` can load it.
   ssr: false,
+  telemetry: false,
   devtools: { enabled: false },
+  devServer: {
+    host: '0.0.0.0',
+    port: 3001,
+  },
   css: ['~/assets/css/main.css'],
   vite: {
     plugins: [tailwindcss()],
+    clearScreen: false,
+    envPrefix: ['VITE_', 'TAURI_'],
+    server: {
+      strictPort: true,
+    },
   },
+  ignore: ['**/src-tauri/**'],
   app: {
     head: {
       title: 'Gentle Fist',

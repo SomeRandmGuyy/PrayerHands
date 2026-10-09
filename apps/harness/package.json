@@ -9,13 +9,18 @@
   "scripts": {
     "dev": "nuxt dev --port 3001 --host 0.0.0.0",
     "build": "nuxt build",
+    "generate": "nuxt generate",
     "typecheck": "nuxt typecheck",
     "test": "node --experimental-strip-types --disable-warning=ExperimentalWarning tests/map-event.test.ts",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "tauri": "tauri",
+    "tauri:dev": "tauri dev",
+    "tauri:build": "tauri build"
   },
   "dependencies": {
     "@lucide/vue": "^1.54.0",
     "@tailwindcss/vite": "^4.1.16",
+    "@tauri-apps/api": "^2.12.2",
     "@xterm/addon-fit": "^0.10.0",
     "@xterm/xterm": "^5.5.0",
     "class-variance-authority": "^0.7.1",
@@ -27,6 +32,7 @@
     "tailwindcss": "^4.1.16"
   },
   "devDependencies": {
+    "@tauri-apps/cli": "^2.12.1",
     "@types/node": "^22.20.5",
     "typescript": "^5.9.3",
     "vue-tsc": "^3.1.1"

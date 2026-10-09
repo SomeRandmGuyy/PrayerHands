@@ -3,5 +3,5 @@
   "compilerOptions": {
     "strict": true
   },
-  "exclude": ["tests", "node_modules", "dist"]
+  "exclude": ["tests", "node_modules", "dist", "src-tauri"]
 }
